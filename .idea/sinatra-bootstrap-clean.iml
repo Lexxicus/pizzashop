@@ -32,5 +32,6 @@
     <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.9, ruby-2.5.3-p105) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tux (v0.3.0, ruby-2.5.3-p105) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.5, ruby-2.5.3-p105) [gem]" level="application" />
+    <orderEntry type="library" name="html5shiv" level="application" />
   </component>
 </module>
