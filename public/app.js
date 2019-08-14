@@ -2,8 +2,8 @@ var x = 1
 
 function something()
 {
-    var x = window.localStorage.getItem('a');
+    var x = window.localStorage.getItem('aaa');
     x = x*1 + 1
-    window.localStorage.setItem('a', x);
+    window.localStorage.setItem('aaa', x);
     alert(x);
 }
