@@ -1,4 +1,4 @@
-<h2>Hello to Pizza Shop</h2>
+<h2>WeLcOmE tO pIzZa ShOp</h2>
 
 <div class = "row">
 
@@ -9,7 +9,8 @@
       </div>
 
       <div>
-        <img src="<%= p.path_to_image %>">
+        <img src="<%= p.path_to_image %>" width="160" height="140">
+        <%= p.size %> Cm.
       </div>
 
       <div>
@@ -17,11 +18,16 @@
       </div>
 
       <div>
-        Price: <%= p.price %>
+        Price: <%= p.price %> Rub.
       </div>
-
+      <% if p.is_best_offer? %>
+          <div>
+            Best offer
+          </div>
+      <% end %>
+      <button class="btn btn-xs btn-success" onclick="add_to_cart(<%= p.id %>)" type="submit">Add to cart</button>
     </div>
 <% end %>
 
 </div>
-<button class="btn btn-primary" onclick="something()" type="submit">Click me!!</button>
+
