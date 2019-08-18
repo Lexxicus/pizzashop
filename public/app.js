@@ -11,5 +11,8 @@ function something()
 
 function add_to_cart(id)
 {
-    alert('you add pizza id: ' + id);
+    var key = 'product_' + id //создаем переменную для ключа хэша
+    var x = window.localStorage.getItem(key); // записываем переменную в локал сторедж
+    x = x*1 + 1; // увеличиваем значение переменной
+    window.localStorage.setItem(key, x) // записываем значение пару ключ значение в локалсторедж
 }
