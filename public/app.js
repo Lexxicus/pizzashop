@@ -17,22 +17,27 @@ function add_to_cart(id)
     x = x*1 + 1;
     // записываем значение пару ключ значение в локалсторедж
     window.localStorage.setItem(key, x);
+    // вывод количества продуктов в корзине
+    alert('Items in your cart: ' + all_Storage());
 }
-
+//number of cart items
 function all_Storage() {
 
-    var sum = 0;
+    var cnt = 0;
 
     for (var i = 0; i < localStorage.length; i++) {
 
-        // set iteration key name
+        // получаем ключ
         var key = localStorage.key(i);
 
-        // use key name to retrieve the corresponding value
+        // получаем значение
         var value = localStorage.getItem(key)*1;
-        // get sum of all value of localstorage
-        sum = sum + value;
+        //
+        if(key.indexOf('product_')==0)
+        {
+          cnt+= value;
+        }
 
     }
-    alert (sum);
+    return cnt;
 }
