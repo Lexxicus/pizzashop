@@ -35,9 +35,30 @@ function all_Storage() {
         //
         if(key.indexOf('product_')==0)
         {
-          cnt+= value;
+            cnt+= value;
         }
 
     }
     return cnt;
+}
+
+function cart_get_orders() {
+
+    var orders = '';
+
+    for (var i = 0; i < localStorage.length; i++) {
+
+        // получаем ключ
+        var key = localStorage.key(i);
+
+        // получаем значение
+        var value = localStorage.getItem(key)*1;
+        //
+        if(key.indexOf('product_')==0)
+        {
+            orders = orders + key + '=' + value +',';
+        }
+
+    }
+    return orders;
 }
