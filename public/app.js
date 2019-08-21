@@ -20,6 +20,7 @@ function add_to_cart(id)
     window.localStorage.setItem(key, x);
     // вывод количества продуктов в корзине
     update_orders_input();
+    update_orders_button();
 }
 //number of cart items
 function all_Storage() {
@@ -42,11 +43,18 @@ function all_Storage() {
     }
     return cnt;
 }
-
+// функция для передачиданных на сервер о заказе
 function update_orders_input() {
 
     var orders = cart_get_orders();
     $('#orders_input').val(orders);
+
+}
+// Функция вывода количества заказанных продуктов в кнопке
+function update_orders_button() {
+
+    var text = 'Cart ('+ all_Storage() +')';
+    $('#orders_button').val(text);
 
 }
 
