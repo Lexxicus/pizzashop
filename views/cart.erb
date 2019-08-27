@@ -1,0 +1,38 @@
+<%= @test %>
+<div class = "row">
+
+  <% @in_cart.each do |p| %>
+      <div class = "col-md-3">
+        <div>
+          Title: <%= p.title %>
+        </div>
+
+        <div>
+          <img src="<%= p.path_to_image %>" width="160" height="140">
+          <%= p.size %> Cm.
+        </div>
+
+        <div>
+          Description: <%= p.description %>
+        </div>
+
+        <div>
+          Price: <%= p.price %> Rub.
+        </div>
+        <% if p.is_best_offer? %>
+            <div>
+              Best offer
+            </div>
+        <% end %>
+        <button class="btn btn-xs btn-success" onclick="add_to_cart(<%= p.id %>)" type="submit">Add to cart</button>
+      </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        update_orders_input();
+        update_orders_button();
+        cart_get_id();
+    });
+</script>

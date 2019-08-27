@@ -43,7 +43,7 @@ function all_Storage() {
     }
     return cnt;
 }
-// функция для передачиданных на сервер о заказе
+// функция для передачиданных данных на сервер о заказе
 function update_orders_input() {
 
     var orders = cart_get_orders();
@@ -77,4 +77,19 @@ function cart_get_orders() {
 
     }
     return orders;
+}
+
+function cart_get_id() {
+
+    var id = '';
+
+    for (var i = 0; i < localStorage.length; i++) {
+
+        // получаем ключ
+        var key = localStorage.key(i);
+
+        id = id + key +',';
+
+    }
+    $('#orders_id').val(id);
 }
