@@ -1,38 +1,43 @@
-<%= @test %>
-<div class = "row">
 
-  <% @in_cart.each do |p| %>
-      <div class = "col-md-3">
-        <div>
-          Title: <%= p.title %>
-        </div>
+</table>
+<table class="table">
+  <caption>What in your cart</caption>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Qantity</th>
+    <th>Total Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% i = 0 %>
+  <% total_price = 0 %>
+  <% total_qty = 0 %>
+  <% @items.each do |item| %>
+  <tr>
 
-        <div>
-          <img src="<%= p.path_to_image %>" width="160" height="140">
-          <%= p.size %> Cm.
-        </div>
-
-        <div>
-          Description: <%= p.description %>
-        </div>
-
-        <div>
-          Price: <%= p.price %> Rub.
-        </div>
-        <% if p.is_best_offer? %>
-            <div>
-              Best offer
-            </div>
-        <% end %>
-        <button class="btn btn-xs btn-success" onclick="add_to_cart(<%= p.id %>)" type="submit">Add to cart</button>
-      </div>
+    <th scope="row"><%= i +=1%></th>
+    <td><%= item[0].title %></td>
+    <td><%= item[0].price %></td>
+    <td><%= item[1] %></td>
+    <td><%= item[1].to_i * item[0].price %></td>
+  </tr>
+      <% total_qty +=  item[1].to_i %>
+      <% total_price += item[1].to_i * item[0].price %>
   <% end %>
-</div>
 
-<script type="text/javascript">
-    $(function() {
-        update_orders_input();
-        update_orders_button();
-        cart_get_id();
-    });
-</script>
+  <tr>
+
+    <th scope="row"></th>
+    <td></td>
+    <td></td>
+    <td><%= total_qty %></td>
+    <td>Total<%= total_price %>Rub.</td>
+  </tr>
+
+  </tbody>
+</table>
+
+
