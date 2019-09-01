@@ -59,10 +59,10 @@ post '/place_order' do
 
   @neworder = Order.new params[:order]
   if @neworder.save
-    erb "<h4> Спасибо за заказ! </h4>"
+    erb :order_placed
   else
     @error = @neworder.errors.full_messages.first
-    redirect to ('/')
+    erb 'error'
   end
 
 end
