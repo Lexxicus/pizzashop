@@ -79,17 +79,9 @@ function cart_get_orders() {
     return orders;
 }
 
-function cart_get_id() {
 
-    var id = '';
+function cart_clear() {
 
-    for (var i = 0; i < localStorage.length; i++) {
-
-        // получаем ключ
-        var key = localStorage.key(i);
-
-        id = id + key +',';
-
-    }
-    $('#orders_id').val(id);
+    window.localStorage.clear();
+    $('#orders_clear')
 }

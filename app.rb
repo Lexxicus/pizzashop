@@ -11,6 +11,13 @@ class Product < ActiveRecord::Base
 
 end
 
+class Order < ActiveRecord::Base
+
+  validates :name, presence: true, length: {minimum:  3}
+  validates :phone, presence: true, length: {minimum:  11}
+
+end
+
 def parse_orders_input orders_input
 
   s1 = orders_input.split(',')
@@ -45,5 +52,17 @@ post'/cart' do
   end
 
   erb :cart
+
+end
+
+post '/place_order' do
+
+  @neworder = Order.new params[:order]
+  if @neworder.save
+    erb "<h4> Спасибо за заказ! </h4>"
+  else
+    @error = @neworder.errors.full_messages.first
+    redirect to ('/')
+  end
 
 end
