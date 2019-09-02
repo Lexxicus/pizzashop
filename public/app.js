@@ -80,8 +80,11 @@ function cart_get_orders() {
 }
 
 
-function cart_clear() {
-
+function cancel_order() {
     window.localStorage.clear();
-    $('#orders_clear')
+
+    update_orders_input();
+    update_orders_button();
+
+    return false;
 }
