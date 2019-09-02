@@ -81,10 +81,12 @@ function cart_get_orders() {
 
 
 function cancel_order() {
+    //очистка локасторедж
     window.localStorage.clear();
-
+    //обновление кнопки
     update_orders_input();
     update_orders_button();
-
+    //вывод сообщения о том что корзина пуста
+    $('#cart').text('Ваша корзина пуста');
     return false;
 }
